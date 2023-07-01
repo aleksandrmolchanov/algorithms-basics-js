@@ -9,4 +9,15 @@ class DoublyLikedListNode {
 class DoublyLinkedList {
     head = null;
     tail = null;
+
+    insertBegin(value) {
+        if (this.head === null) {
+            const node = new DoublyLikedListNode(value, null, null);
+            this.head = node;
+            this.tail = node;
+        } else {
+            const node = new DoublyLikedListNode(value, null, this.head);
+            this.head = node;
+        }
+    }
 }
