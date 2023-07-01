@@ -17,6 +17,7 @@ class DoublyLinkedList {
             this.tail = node;
         } else {
             const node = new DoublyLikedListNode(value, null, this.head);
+            this.head.previous = node;
             this.head = node;
         }
     }
