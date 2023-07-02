@@ -33,4 +33,22 @@ class DoublyLinkedList {
             this.tail = node;
         }
     }
+    
+    removeBegin(){
+        if (this.head === null) {
+            return undefined;
+        } 
+        
+        const result = this.head.value;
+        
+        if (this.head === this.tail) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.head = this.head.next;
+            this.head.previous = null;
+        }
+
+        return result;
+    }
 }
