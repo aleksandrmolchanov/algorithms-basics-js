@@ -21,4 +21,16 @@ class DoublyLinkedList {
             this.head = node;
         }
     }
+
+    insertEnd(value) {
+        if (this.head === null) {
+            const node = new DoublyLikedListNode(value, null, null);
+            this.tail = node;
+            this.head = node;
+        } else {
+            const node = new DoublyLikedListNode(value, null, this.tail);
+            this.tail.next = node;
+            this.tail = node;
+        }
+    }
 }
