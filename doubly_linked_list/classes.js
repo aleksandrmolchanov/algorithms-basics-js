@@ -52,3 +52,42 @@ class DoublyLinkedList {
         return result;
     }
 }
+
+const sum = (items) => {
+    let result = 0;
+    
+    for (let item of items) {
+      result = result + item; 
+    }
+  
+    return result;
+};
+
+let list = new DoublyLinkedList();
+list.insertBegin(1);
+list.insertBegin(2);
+list.insertBegin(3);
+list.insertBegin(4);
+
+list[Symbol.iterator] = function () {
+    return {
+        current: this.head,
+        next() {
+            if (this.current === null) {
+                return {
+                    done: true
+                }
+            } else {
+                const res = {
+                    done: false,
+                    value: this.current.value
+                }
+                this.current = this.current.next;
+
+                return res;
+            }
+        }
+    }
+};
+
+console.log(sum(list));
