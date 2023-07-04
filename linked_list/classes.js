@@ -78,4 +78,18 @@ class LinkedList {
     }
 }
 
+class Stack {
+    items = new LinkedList();
 
+    push(value) {
+        this.items.add(value);
+    }
+
+    pop() {
+        return this.items.remove();
+    }
+
+    isEmpty() {
+        return this.items.head == null;
+    }
+}
