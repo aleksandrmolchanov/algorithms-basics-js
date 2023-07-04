@@ -51,6 +51,31 @@ class DoublyLinkedList {
 
         return result;
     }
+
+    removeEnd(){
+        const result = this.tail;
+
+        this.tail = this.tail.previous;
+        this.tail.next = null;
+
+        return result;
+    }
+}
+
+class Queue {
+    items = new DoublyLinkedList();
+
+    push(value) {
+        this.items.insertBegin(value);
+    }
+
+    pop() {
+        return this.items.removeEnd();
+    }
+
+    isEmpty() {
+        return this.items.head == null;
+    }
 }
 
 const sum = (items) => {
