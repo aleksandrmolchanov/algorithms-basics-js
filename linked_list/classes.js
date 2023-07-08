@@ -93,3 +93,17 @@ class Stack {
         return this.items.head == null;
     }
 }
+
+let capitals = new Array(100);
+
+const setCapital = (year, city) => {
+    let index = year % capitals.length;
+    if(typeof(capitals[index]) === 'undefined') {
+        capitals[index] = new LinkedList();
+    }
+
+    capitals[index].add({
+        key: year,
+        value: city
+    });
+}
