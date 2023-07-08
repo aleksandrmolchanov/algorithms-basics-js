@@ -107,3 +107,18 @@ const setCapital = (year, city) => {
         value: city
     });
 }
+
+const getCapital = (year) => {
+    let index = year % capitals.length;
+    if(typeof(capitals[index]) === 'undefined') {
+        return undefined;
+    }
+
+    for(let pair of capitals[index]) {
+        if (pair.key === year) {
+            return pair.value;
+        }
+    }
+
+    return undefined;
+}
